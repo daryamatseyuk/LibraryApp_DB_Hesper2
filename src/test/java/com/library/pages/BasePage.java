@@ -17,10 +17,6 @@ public abstract  class BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-
-    @FindBy(tagName = "h3")
-    public WebElement pageHeader;
-
     @FindBy(css = "#navbarDropdown>span")
     public WebElement accountHolderName;
 
