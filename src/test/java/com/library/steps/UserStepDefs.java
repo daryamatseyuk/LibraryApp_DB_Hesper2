@@ -6,8 +6,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.List;
+
 public class UserStepDefs {
     String actualUserCount;
+    List<String> actualColumns;
 
     @Given("Establish the database connection")
     public void establish_the_database_connection() {
@@ -46,5 +49,37 @@ public class UserStepDefs {
         System.out.println("-----DB CONNECTION IS CLOSED BY HOOKS -----");
         System.out.println("------------------------------------------");
     }
+    @When("Execute query to get all columns")
+    public void executeQueryToGetAllColumns() {
+        String query = "select * from users";
+        DB_Util.runQuery(query);
 
+        actualColumns = DB_Util.getAllColumnNamesAsList();
+
+        System.out.println("actualColumns = " + actualColumns);
+
+    }
+
+
+    @Then("verify the below columns are listed in result")
+    public void verifyTheBelowColumnsAreListedInResult(List<String> expectedColumns) {
+
+        System.out.println("expectedColumns = " + expectedColumns);
+        Assert.assertEquals(expectedColumns, actualColumns);
+
+    }
+
+    @When("I execute query to find most popular book genre")
+    public void iExecuteQueryToFindMostPopularBookGenre() {
+
+
+
+    }
+
+    @Then("verify {string} is the most popular book genre.")
+    public void verifyIsTheMostPopularBookGenre(String arg0) {
+
+
+
+    }
 }
