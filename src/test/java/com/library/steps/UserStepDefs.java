@@ -69,17 +69,5 @@ public class UserStepDefs {
 
     }
 
-    @When("I execute query to find most popular book genre")
-    public void iExecuteQueryToFindMostPopularBookGenre() {
 
-
-
-    }
-
-    @Then("verify {string} is the most popular book genre.")
-    public void verifyIsTheMostPopularBookGenre(String arg0) {
-
-
-
-    }
 }
