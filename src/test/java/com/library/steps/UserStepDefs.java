@@ -29,7 +29,7 @@ public class UserStepDefs {
         String query="select count(id) from users";
         DB_Util.runQuery(query);
 
-         actualUserCount = DB_Util.getFirstRowFirstColumn();
+        actualUserCount = DB_Util.getFirstRowFirstColumn();
         System.out.println(actualUserCount);
 
     }
@@ -43,7 +43,7 @@ public class UserStepDefs {
 
         Assert.assertEquals(expectedUserCount,actualUserCount);
 
-        // Close Coneection
+        // Close Connection
         // DB_Util.destroy();
         System.out.println("------------------------------------------");
         System.out.println("-----DB CONNECTION IS CLOSED BY HOOKS -----");

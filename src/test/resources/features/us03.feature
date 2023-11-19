@@ -1,6 +1,6 @@
 
 Feature: As a data consumer, I want UI and DB book categories are match.
-
+  @wip2 @ui @db
   Scenario: verify book categories with DB
     Given the "librarian" on the home page
     When the user navigates to "Books" page
