@@ -8,7 +8,7 @@ import org.junit.Assert;
 
 import java.util.List;
 
-public class UserStepDefs {
+public class US01_StepDefs {
     String actualUserCount;
     List<String> actualColumns;
 
