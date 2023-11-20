@@ -32,10 +32,18 @@ from book_borrow
 where name = 'Ugly Naked Guy'
 group by book_id;
 
-select name, b.id, borrowed_date, planned_return_date, returned_date, is_returned
+select name, is_returned
 from books b
-         left join book_borrow bb on b.id = bb.book_id
-where name = 'Fatima book2';
+         right join book_borrow bb on b.id = bb.book_id
+where name = 'Fatima book2'
+  and is_returned = 0;
 
-select *
-from book_borrow;
+
+select full_name
+from users u
+         inner join book_borrow bb on u.id = bb.user_id
+         inner join books b on bb.book_id = b.id
+where full_name = 'Test Student 5' and name = 'Ugly Naked Guy' and is_returned = 0;
+
+
+

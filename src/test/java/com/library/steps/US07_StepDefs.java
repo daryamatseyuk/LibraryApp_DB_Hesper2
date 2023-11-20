@@ -51,6 +51,16 @@ public class US07_StepDefs {
 
     @And("verify logged student has same book in database")
     public void verifyLoggedStudentHasSameBookInDatabase() {
-        DB_Util.runQuery("");
+        DB_Util.runQuery("select full_name\n" +
+                "from users u\n" +
+                "         inner join book_borrow bb on u.id = bb.user_id\n" +
+                "         inner join books b on bb.book_id = b.id\n" +
+                "where full_name = 'Test Student 5' and name = 'Ugly Naked Guy' and is_returned = 0");
+
+        borrowedBooksPage.unborrow();
+
+        Assert.assertEquals(DB_Util.getFirstRowFirstColumn(),borrowedBooksPage.loggedUser.getText());
+
+
     }
 }
