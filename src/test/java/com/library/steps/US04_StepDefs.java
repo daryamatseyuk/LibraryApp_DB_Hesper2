@@ -19,7 +19,7 @@ public class US04_StepDefs {
     BookPage bookPage = new BookPage();
 
 
-    @When("the user searches for {string} book")
+    @When("the user searches the {string} book")
     public void the_user_searches_for_book(String bookName) {
         bookPage.search.sendKeys(bookName);
     }
