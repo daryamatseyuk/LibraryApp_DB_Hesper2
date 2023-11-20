@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class BookPage extends BasePage {
 
@@ -39,13 +41,21 @@ public class BookPage extends BasePage {
     @FindBy(name = "isbn")
     public WebElement isbn;
 
-    @FindBy(id = "book_group_id")
+    @FindBy(id = "book_categories")
     public WebElement categoryDropdown;
 
 
     @FindBy(id = "description")
     public WebElement description;
 
+    @FindBy(xpath = "//td[.='999240111']//preceding-sibling::td/a")
+    public WebElement editCustomBookBtn;
+
+    @FindBy(xpath = "//div[@class='form-group']//input | //textarea[@class='form-control']")
+    public List<WebElement> editBookInfoList;
+
+    @FindBy(id = "book_group_id")
+    public WebElement editBookCategory;
 
 
     public WebElement editBook(String book) {

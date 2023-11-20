@@ -394,5 +394,29 @@ public class DB_Util {
 
     }
 
+    public static Map<String, String> getRowWithLabelAsMap(int rowNumber) {
+        Map<String,String> rowMap = new LinkedHashMap<>();
+        int columnCount = getColumnCount() ;
+
+        try{
+
+            rs.absolute(rowNumber) ;
+
+            for (int colIndex = 1; colIndex <= columnCount ; colIndex++) {
+                String columnName = rsmd.getColumnLabel(colIndex) ;
+                String cellValue  = rs.getString(rsmd.getColumnLabel(colIndex)) ;
+                rowMap.put(columnName, cellValue) ;
+            }
+
+        }catch(Exception e){
+            System.out.println("ERROR OCCURRED WHILE getRowMap " + e.getMessage() );
+        }finally {
+            resetCursor();
+        }
+
+
+        return rowMap ;
+    }
+
 
 }
