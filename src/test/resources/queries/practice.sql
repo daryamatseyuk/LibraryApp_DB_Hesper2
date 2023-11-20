@@ -10,3 +10,6 @@ FROM books B
 
     select count(*) from book_borrow
     where is_returned = 0;
+
+select name from book_categories;
+select distinct author from books where name = 'The Scrum Field Guide';

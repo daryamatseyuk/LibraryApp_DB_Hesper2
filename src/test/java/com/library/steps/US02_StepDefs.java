@@ -40,6 +40,5 @@ public class US02_StepDefs {
 
         Assert.assertEquals(expectedBorrowedBooksNumber,actualBorrowedBooksNumber);
 
-
     }
 }
