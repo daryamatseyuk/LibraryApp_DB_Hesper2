@@ -63,10 +63,18 @@ public class BookPage extends BasePage {
         return Driver.getDriver().findElement(By.xpath(xpath));
     }
 
-    public WebElement borrowBook(String book) {
+    public void borrowBook(String book) {
         String xpath = "//td[3][.='" + book + "']/../td/a";
-        return Driver.getDriver().findElement(By.xpath(xpath));
+        Driver.getDriver().findElement(By.xpath(xpath)).click();
     }
+    public List<WebElement> getListOfAvailableBooks(String book) {
+        String xpath = "//td[3][.='" + book + "']/../td/a";
+        return Driver.getDriver().findElements(By.xpath(xpath));
+    }
+
+
+
+
 
 
 
