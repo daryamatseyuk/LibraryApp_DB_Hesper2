@@ -10,3 +10,6 @@ FROM books B
 
     select count(*) from book_borrow
     where is_returned = 0;
+
+select * from books
+where isbn = 999240111;
