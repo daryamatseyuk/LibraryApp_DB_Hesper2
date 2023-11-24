@@ -11,5 +11,7 @@ FROM books B
     select count(*) from book_borrow
     where is_returned = 0;
 
-select * from books
-where isbn = 999240111;
+select b.name, isbn,year,author,bc.name,b.description from books b
+        join book_categories bc
+            on b.book_category_id = bc.id
+where isbn = '999240111';
